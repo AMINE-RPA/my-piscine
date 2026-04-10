@@ -22,7 +22,7 @@ async function afficherProduits() {
   data.forEach(produit => {
     const li = document.createElement("li");
 
-    li.textContent = `${produit.name} - ${produit.desc}`;
+    li.textContent = `${produit.piscine_name} - ${produit.desc}`;
 
     liste.appendChild(li);
   });
@@ -42,6 +42,6 @@ Pompe à chaleur - 1200€
 Tu peux afficher ça en "cards" :
 
 li.innerHTML = `
-  <strong>${produit.name}</strong><br>
+  <strong>${produit.piscine_name}</strong><br>
   Prix : ${produit.desc}€
 `;
