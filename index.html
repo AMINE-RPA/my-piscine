@@ -1,30 +1,60 @@
 <!DOCTYPE html>
-<html lang="en">
-    
+<html lang="fr">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=
-    , initial-scale=1.0">
-    <title>My Piscine</title>
+  <meta charset="UTF-8">
+  <title>Dashboard Piscine</title>
+  <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <header>
-        <div class="toolbar">
-            <li>
-                <ul class="toolbarItem"></ul>
-                <ul class="toolbarItem"></ul>
-                <ul class="toolbarItem"></ul>
-                <ul class="toolbarItem"></ul>
-                <ul class="toolbarItem"></ul>
-            </li>
-        </div>
-    </header>
-    <section>
-        <div id="liste-produits">
-            
-        </div>
+
+  <header>
+    <h1>🏊‍♂️ Suivi Piscine</h1>
+  </header>
+
+  <main>
+
+    <!-- INFOS PISCINE -->
+    <section class="card">
+      <h2>Informations</h2>
+      <p><strong>Nom :</strong> Ma Piscine</p>
+      <p><strong>Dernier entretien :</strong> 05/04/2026</p>
+      <p><strong>État :</strong> ✅ OK</p>
     </section>
+
+    <!-- AJOUT INTERVENTION -->
+    <section class="card">
+      <h2>Ajouter une intervention</h2>
+
+      <form id="form-intervention">
+        <input type="date" required>
+        <input type="text" placeholder="Type (nettoyage, réparation...)" required>
+        <textarea placeholder="Description"></textarea>
+        <button type="submit">Ajouter</button>
+      </form>
+    </section>
+
+    <!-- LISTE INTERVENTIONS -->
+    <section class="card">
+      <h2>Historique des interventions</h2>
+
+      <ul id="liste-interventions">
+        <li>
+          <strong>01/04/2026</strong> - Nettoyage
+          <p>Filtre nettoyé + vérification pompe</p>
+        </li>
+
+        <li>
+          <strong>28/03/2026</strong> - Traitement
+          <p>Ajout chlore</p>
+        </li>
+      </ul>
+
+    </section>
+
+  </main>
+
 </body>
+
 <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js"></script>
 <script type="module" src="script.js"></script>
 </html>
