@@ -1,14 +1,16 @@
 const supabaseUrl = "https://biumenziykdqkloedxwa.supabase.co";
-const supabaseKey = "sb_publishable_2ZQc_ZnKGqJLrKUMOO5qpQ_Pj7BuQKc";
+const supabaseKey = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImJpdW1lbnppeWtkcWtsb2VkeHdhIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NzU2MDMyODMsImV4cCI6MjA5MTE3OTI4M30.sZVyxM72fDtE04Yt4PRZkKVXxcrCvp5byaEFoBdQ5Zo";
 
-const supabase = supabase.createClient(supabaseUrl, supabaseKey);
-const supabaseClient = supabase.createClient(supabaseUrl, supabaseKey);
+const supabaseClient = window.supabase.createClient(
+  supabaseUrl,
+  supabaseKey
+);
 
 // 📦 Fonction pour récupérer et afficher les produits
 async function afficherProduits() {
 
   const { data, error } = await supabaseClient
-    .from('user_piscine') // nom de ta table
+    .from('user_piscine')
     .select('*');
 
   if (error) {
@@ -17,31 +19,14 @@ async function afficherProduits() {
   }
 
   const liste = document.getElementById("liste-produits");
-  liste.innerHTML = ""; // reset
+  liste.innerHTML = "";
 
   data.forEach(produit => {
     const li = document.createElement("li");
-
     li.textContent = `${produit.piscine_name} - ${produit.desc}`;
-
     liste.appendChild(li);
   });
 }
 
 // 🚀 Lancer au chargement
 afficherProduits();
-✅ Résultat
-
-Tu vas voir une liste comme :
-
-Climatiseur - 500€
-Ventilateur - 80€
-Pompe à chaleur - 1200€
-🔥 Amélioration stylée (optionnelle)
-
-Tu peux afficher ça en "cards" :
-
-li.innerHTML = `
-  <strong>${produit.piscine_name}</strong><br>
-  Prix : ${produit.desc}€
-`;
